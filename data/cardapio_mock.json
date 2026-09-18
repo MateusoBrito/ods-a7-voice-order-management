@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "nome": "X-Salada",
+    "preco": 18.50,
+    "variacoes": ["sem cebola", "molho especial", "queijo extra"],
+    "disponibilidade": true
+  },
+  {
+    "id": 2,
+    "nome": "Coca-Cola",
+    "preco": 6.00,
+    "variacoes": ["Lata 350ml", "Garrafa 600ml"],
+    "disponibilidade": true
+  },
+  {
+    "id": 3,
+    "nome": "X-Burguer",
+    "preco": 15.00,
+    "variacoes": ["com bacon"],
+    "disponibilidade": false
+  }
+]
