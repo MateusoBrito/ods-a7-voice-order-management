@@ -2,22 +2,127 @@
   {
     "id": 1,
     "nome": "X-Salada",
-    "preco": 18.50,
-    "variacoes": ["sem cebola", "molho especial", "queijo extra"],
+    "preco": 22.90,
+    "variacoes": ["sem cebola", "molho especial da casa", "queijo extra", "pão integral"],
     "disponibilidade": true
   },
   {
     "id": 2,
-    "nome": "Coca-Cola",
-    "preco": 6.00,
-    "variacoes": ["Lata 350ml", "Garrafa 600ml"],
+    "nome": "X-Bacon",
+    "preco": 26.50,
+    "variacoes": ["bacon extra", "sem maionese", "pão brioche"],
     "disponibilidade": true
   },
   {
     "id": 3,
-    "nome": "X-Burguer",
-    "preco": 15.00,
-    "variacoes": ["com bacon"],
+    "nome": "X-Tudo",
+    "preco": 32.00,
+    "variacoes": ["sem milho", "sem ervilha", "ovo extra"],
+    "disponibilidade": true
+  },
+  {
+    "id": 4,
+    "nome": "Hamburguer Artesanal Smash",
+    "preco": 19.90,
+    "variacoes": ["duplo smash", "queijo cheddar", "queijo prato"],
+    "disponibilidade": true
+  },
+  {
+    "id": 5,
+    "nome": "Vegetariano Futuro",
+    "preco": 25.00,
+    "variacoes": ["queijo vegano", "sem maionese"],
     "disponibilidade": false
+  },
+  {
+    "id": 6,
+    "nome": "Coca-Cola Lata 350ml",
+    "preco": 6.50,
+    "variacoes": ["Original", "Zero Açúcar"],
+    "disponibilidade": true
+  },
+  {
+    "id": 7,
+    "nome": "Coca-Cola Garrafa 600ml",
+    "preco": 9.50,
+    "variacoes": ["Original", "Zero Açúcar"],
+    "disponibilidade": true
+  },
+  {
+    "id": 8,
+    "nome": "Guaraná Antarctica 350ml",
+    "preco": 6.00,
+    "variacoes": ["Original", "Zero"],
+    "disponibilidade": true
+  },
+  {
+    "id": 9,
+    "nome": "Suco Natural de Laranja 500ml",
+    "preco": 8.00,
+    "variacoes": ["com açúcar", "sem açúcar", "com gelo", "sem gelo"],
+    "disponibilidade": true
+  },
+  {
+    "id": 10,
+    "nome": "Água Mineral 500ml",
+    "preco": 4.00,
+    "variacoes": ["sem gás", "com gás", "com limão"],
+    "disponibilidade": true
+  },
+  {
+    "id": 11,
+    "nome": "Batata Frita Padrão",
+    "preco": 14.00,
+    "variacoes": ["com cheddar e bacon", "sem sal", "molho barbecue"],
+    "disponibilidade": true
+  },
+  {
+    "id": 12,
+    "nome": "Batata Frita Grande",
+    "preco": 22.00,
+    "variacoes": ["com cheddar e bacon", "porção dupla de bacon"],
+    "disponibilidade": true
+  },
+  {
+    "id": 13,
+    "nome": "Onion Rings",
+    "preco": 18.00,
+    "variacoes": ["molho ranch", "molho picante"],
+    "disponibilidade": false
+  },
+  {
+    "id": 14,
+    "nome": "Nuggets de Frango 8 unidades",
+    "preco": 16.00,
+    "variacoes": ["molho mostarda e mel", "molho barbecue"],
+    "disponibilidade": true
+  },
+  {
+    "id": 15,
+    "nome": "Milkshake de Chocolate 400ml",
+    "preco": 15.00,
+    "variacoes": ["com chantilly", "sem chantilly", "calda extra"],
+    "disponibilidade": true
+  },
+  {
+    "id": 16,
+    "nome": "Milkshake de Morango 400ml",
+    "preco": 15.00,
+    "variacoes": ["com chantilly", "sem chantilly"],
+    "disponibilidade": true
+  },
+  {
+    "id": 17,
+    "nome": "Pudim de Leite Condensado",
+    "preco": 9.00,
+    "variacoes": ["fatia individual"],
+    "disponibilidade": true
+  },
+  {
+    "id": 18,
+    "nome": "Brownie com Sorvete",
+    "preco": 17.50,
+    "variacoes": ["sorvete de creme", "sorvete de chocolate", "calda quente de chocolate"],
+    "disponibilidade": true
   }
 ]
