@@ -1,21 +1,22 @@
 import sys
 import os
-
 import pytest
 
 # Adiciona o diretório raiz do projeto ao sys.path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
+from src.modulo_catalogo.repository import CatalogoRepository
 from src.modulo_nlu.classifier import IntentClassifier
 from src.modulo_nlu.subscriber import AudioEventSubscriber
 
 @pytest.fixture
 def nlu_pipeline():
-    classifier = IntentClassifier()
+    catalogo = CatalogoRepository(json_path="data/cardapio_mock.json")
+    classifier = IntentClassifier(catalogo_repo=catalogo)
     subscriber = AudioEventSubscriber(classifier)
     return subscriber
 
-def test_criterio_de_aceite_nlu1(nlu_pipeline):
+def test_criterio_de_aceite_nlu1_e_nlu2(nlu_pipeline):
     # Evento simulado do componente i5 via barramento
     evento_i5 = {
         "texto": "quero dois x-saladas",
@@ -26,19 +27,33 @@ def test_criterio_de_aceite_nlu1(nlu_pipeline):
 
     assert resultado["intencao"] == "ADICIONAR_ITEM"
     assert resultado["texto_bruto"] == "dois x-saladas"
-    print("Resultado do teste de critério de aceite NLU1:", resultado)
+    
+    # Validações da Task 18 (Slots com ID Oficial e Quantidade Numérica)
+    entidades = resultado["entidades"]
+    assert entidades["produto_id"] == 1
+    assert entidades["produto"] == "X-Salada"
+    assert entidades["quantidade"] == 2
+    assert entidades["disponivel"] is True
 
-def test_variacao_verbos_adicionar(nlu_pipeline):
+def test_variacao_verbos_e_quantidade_extenso(nlu_pipeline):
     evento = {"texto": "me vê uma coca cola por favor", "confianca": 0.90}
     resultado = nlu_pipeline.on_message_received(evento)
 
     assert resultado["intencao"] == "ADICIONAR_ITEM"
-    assert resultado["texto_bruto"] == "uma coca cola"
-    print("Resultado do teste de variação de verbos para adicionar:", resultado)
+    assert resultado["entidades"]["quantidade"] == 1
+    assert "Coca-Cola" in resultado["entidades"]["produto"]
+
+def test_quantidade_maior_com_limite(nlu_pipeline):
+    # Testa extração de numerais maiores e a trava de segurança (máx 20)
+    evento = {"texto": "quero 15 x-saladas", "confianca": 0.95}
+    resultado = nlu_pipeline.on_message_received(evento)
+
+    assert resultado["intencao"] == "ADICIONAR_ITEM"
+    assert resultado["entidades"]["quantidade"] == 15
+    assert resultado["entidades"]["produto_id"] == 1
 
 def test_intencao_chamar_atendimento(nlu_pipeline):
     evento = {"texto": "pode chamar o garçom", "confianca": 0.88}
     resultado = nlu_pipeline.on_message_received(evento)
-    print("Resultado do teste de intenção chamar atendimento:", resultado)
 
     assert resultado["intencao"] == "CHAMAR_ATENDIMENTO"
